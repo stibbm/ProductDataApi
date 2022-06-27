@@ -1,5 +1,6 @@
 package product.data.api.activity;
 
+import com.google.common.collect.ImmutableList;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -11,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 import static org.mockito.ArgumentMatchers.any;
 
-public class TestGetProductByIdActivity {
+public class TestGetProductsByNameActivity {
 
     private static final Long TEST_PRODUCT_ID = 1L;
 
@@ -28,19 +29,20 @@ public class TestGetProductByIdActivity {
     @Mock
     private ProductManager productManager;
 
-    private GetProductByIdActivity getProductByIdActivity;
+    private GetProductsByNameActivity getProductsByNameActivity;
 
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-        this.getProductByIdActivity = new GetProductByIdActivity(productManager);
+        this.getProductsByNameActivity = new GetProductsByNameActivity(productManager);
     }
 
     @Test
-    public void testGetProductById() {
-        when(productManager.getProductById(any(Long.class)))
-                .thenReturn(TEST_PRODUCT);
-        Product product = getProductByIdActivity.getProductByIdUrlParams(any(Long.class)).getBody().getProduct();
+    public void testGetProductsByName() {
+        when(productManager.getProductsByName(any(String.class)))
+                .thenReturn(ImmutableList.of(TEST_PRODUCT));
+        Product product = this.getProductsByNameActivity.getProductsByNameUrlParams(TEST_PRODUCT_NAME).getBody()
+                .getProductsList().get(0);
         assertThat(product).isEqualTo(TEST_PRODUCT);
     }
 }
