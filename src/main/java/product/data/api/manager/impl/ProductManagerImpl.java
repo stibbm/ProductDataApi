@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import product.data.api.dao.ProductDAO;
 import product.data.api.manager.ProductManager;
 import product.data.api.model.Product;
 
+@Service
 public class ProductManagerImpl implements ProductManager {
 
 	private ProductDAO productDAO;
