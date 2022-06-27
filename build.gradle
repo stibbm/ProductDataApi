@@ -1,7 +1,46 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.1'
+	id 'org.springframework.boot' version '2.7.0'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'idea'
+	id 'eclipse'
+	id 'io.freefair.lombok' version '6.4.3'
+	id 'com.github.johnrengelman.shadow' version '7.1.2'
+	id 'java-library'
+	id 'maven-publish'
+	id 'com.adarshr.test-logger' version '3.2.0'
+}
+
+// ide's
+java {
+	withSourcesJar()
+}
+eclipse {
+	classpath {
+		downloadSources=true
+		downloadJavadoc = true
+	}
+}
+idea {
+	module {
+		downloadJavadoc = false
+		downloadSources = true
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+compileJava {
+	options.release = 11
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'product.data.api.ProductDataApiApplication'
+	}
 }
 
 group = 'product.data.api'
@@ -13,10 +52,20 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'junit:junit:4.13.2'
+	testImplementation 'org.mockito:mockito-all:1.10.19'
+	testImplementation 'org.assertj:assertj-core:3.22.0'
+	implementation 'com.google.code.gson:gson:2.9.0'
+	implementation 'com.google.guava:guava:31.1-jre'
+	implementation 'com.google.inject:guice:5.1.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework:spring-aop:5.3.20'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'mysql:mysql-connector-java'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
+	implementation 'org.reflections:reflections:0.10.2'
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
 }
