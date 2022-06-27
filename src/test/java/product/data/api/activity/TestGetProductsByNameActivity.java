@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import product.data.api.manager.ProductManager;
+import product.data.api.activity.GetProductsByNameActivity;
 import product.data.api.model.Product;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -40,7 +40,7 @@ public class TestGetProductByIdActivity {
     public void testGetProductById() {
         when(productManager.getProductById(any(Long.class)))
                 .thenReturn(TEST_PRODUCT);
-        Product product = getProductByIdActivity.getProductByIdUrlParams(any(Long.class)).getBody().getProduct();
+        Product product = getProductByIdActivity.getProductByIdUrlParams(TEST_PRODUCT_ID).getBody().getProduct();
         assertThat(product).isEqualTo(TEST_PRODUCT);
     }
 }

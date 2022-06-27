@@ -37,7 +37,7 @@ public class TestCreateProductActivity {
     }
 
     @Test
-    public void testCreatePipeline() {
+    public void testCreateProduct() {
         when(productManager.createProduct(any(String.class), any(String.class)))
                 .thenReturn(TEST_PRODUCT);
         Product product = createProductActivity.createProductUrlParams(TEST_PRODUCT_NAME, TEST_PRODUCT_DESCRIPTION)
