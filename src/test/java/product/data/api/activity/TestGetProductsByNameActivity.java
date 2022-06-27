@@ -36,12 +36,12 @@ public class TestGetProductsByNameActivity {
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-        this.getProductsByNameActivity = new GetProductsByNameActivity(productManager);
+        this.getProductsByNameActivity = new GetProductsByNameActivity(productManagerImpl);
     }
 
     @Test
     public void testGetProductsByName() {
-        when(productManager.getProductsByName(any(String.class)))
+        when(productManagerImpl.getProductsByName(any(String.class)))
                 .thenReturn(ImmutableList.of(TEST_PRODUCT));
         Product product = this.getProductsByNameActivity.getProductsByNameUrlParams(TEST_PRODUCT_NAME).getBody()
                 .getProductsList().get(0);

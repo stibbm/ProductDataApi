@@ -34,16 +34,15 @@ public class TestCreateProductActivity {
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-        createProductActivity = new CreateProductActivity(productManager);
+        createProductActivity = new CreateProductActivity(productManagerImpl);
     }
 
     @Test
     public void testCreateProduct() {
-        when(productManager.createProduct(any(String.class), any(String.class)))
+        when(productManagerImpl.createProduct(any(String.class), any(String.class)))
                 .thenReturn(TEST_PRODUCT);
         Product product = createProductActivity.createProductUrlParams(TEST_PRODUCT_NAME, TEST_PRODUCT_DESCRIPTION)
                 .getBody().getCreatedProduct();
         assertThat(product).isEqualTo(TEST_PRODUCT);
     }
-
 }
