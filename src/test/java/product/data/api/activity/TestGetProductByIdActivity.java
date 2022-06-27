@@ -11,8 +11,8 @@ import product.data.api.model.Product;
 import product.data.api.response.GetProductByIdResponse;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
-import static org.mockito.ArgumentMatchers.any;
 
 public class TestGetProductByIdActivity {
 
