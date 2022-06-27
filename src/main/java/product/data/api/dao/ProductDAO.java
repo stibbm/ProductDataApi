@@ -11,8 +11,6 @@ public interface ProductDAO {
 
   Product getProductById(Long productId);
 
-  List<Product> deleteProductByName(String productName);
-
   Product deleteProductById(Long productId);
 
 }
