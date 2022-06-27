@@ -7,7 +7,7 @@ public interface ProductDAO {
 
   Product createProduct(String productName, String productDescription);
 
-  List<Product> getProductByName(String productName);
+  List<Product> getProductsByName(String productName);
 
   Product getProductById(Long productId);
 

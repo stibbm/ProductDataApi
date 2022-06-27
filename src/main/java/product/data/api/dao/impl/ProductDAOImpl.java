@@ -33,7 +33,7 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public List<Product> getProductByName(String productName) {
+	public List<Product> getProductsByName(String productName) {
 		Validate.notNull(productName, "productName cannot be null");
 		List<Product> productsList = this.productRepository.findProductsByProductName(productName);
 		return productsList;
