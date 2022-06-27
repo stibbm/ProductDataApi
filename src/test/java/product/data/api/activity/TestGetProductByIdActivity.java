@@ -4,9 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.ResponseEntity;
 import product.data.api.manager.ProductManager;
+import product.data.api.manager.impl.ProductManagerImpl;
 import product.data.api.model.Product;
-import product.data.api.activity.GetProductByIdActivity;
+import product.data.api.response.GetProductByIdResponse;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -27,21 +29,22 @@ public class TestGetProductByIdActivity {
             .build();
 
     @Mock
-    private ProductManager productManager;
+    private ProductManagerImpl productManagerImpl;
 
     private GetProductByIdActivity getProductByIdActivity;
 
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-        this.getProductByIdActivity = new GetProductByIdActivity(productManager);
+        this.getProductByIdActivity = new GetProductByIdActivity(productManagerImpl);
     }
 
     @Test
     public void testGetProductById() {
-        when(productManager.getProductById(any(Long.class)))
+        when(productManagerImpl.getProductById(any(Long.class)))
                 .thenReturn(TEST_PRODUCT);
-        Product product = getProductByIdActivity.getProductByIdUrlParams(TEST_PRODUCT_ID).getBody().getProduct();
-        assertThat(product).isEqualTo(TEST_PRODUCT);
+        ResponseEntity<GetProductByIdResponse> responseEntityGetProductByIdResponse
+                = getProductByIdActivity.getProductByIdUrlParams(TEST_PRODUCT_ID);
+        assertThat(responseEntityGetProductByIdResponse.getBody().getProduct()).isEqualTo(TEST_PRODUCT);
     }
 }

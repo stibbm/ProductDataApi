@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import product.data.api.manager.ProductManager;
 import product.data.api.activity.GetProductsByNameActivity;
+import product.data.api.manager.impl.ProductManagerImpl;
 import product.data.api.model.Product;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,7 +29,7 @@ public class TestGetProductsByNameActivity {
             .build();
 
     @Mock
-    private ProductManager productManager;
+    private ProductManagerImpl productManagerImpl;
 
     private GetProductsByNameActivity getProductsByNameActivity;
 
