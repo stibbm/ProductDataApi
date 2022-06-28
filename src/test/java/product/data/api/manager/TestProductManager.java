@@ -1,5 +1,6 @@
 package product.data.api.manager;
 
+import com.google.common.collect.ImmutableList;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,7 +64,7 @@ public class TestProductManager {
         when(productDAOImpl.deleteProductById(any(Long.class)))
             .thenReturn(TEST_PRODUCT);
         Product deletedProduct = productManagerImpl.deleteProductById(TEST_PRODUCT_ID);
-        assertThat(deletedProduct).isEqualTo(TEST_PRODUCT);
+        Assertions.assertThat(deletedProduct).isEqualTo(TEST_PRODUCT);
     }
 
 
