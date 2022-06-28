@@ -58,5 +58,13 @@ public class TestProductManager {
         Assertions.assertThat(product).isEqualTo(TEST_PRODUCT);
     }
 
+    @Test
+    public void testDeleteProductById() {
+        when(productDAOImpl.deleteProductById(any(Long.class)))
+            .thenReturn(TEST_PRODUCT);
+        Product deletedProduct = productManagerImpl.deleteProductById(TEST_PRODUCT_ID);
+        assertThat(deletedProduct).isEqualTo(TEST_PRODUCT);
+    }
+
 
 }
