@@ -51,7 +51,17 @@ Long productId
 http://{ip}:{port}/deleteProductById?productId=1
 ```
 
-
+# Need to update fields in application.properties or specify them as environment variables
+```
+server.port=${port}
+spring.data.jpa.repositories.enabled=true
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.datasource.url=${databaseUrl}
+spring.datasource.username=${dbUsername}
+spring.datasource.password=${dbPassword}
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+spring.jackson.serialization.indent_output=true
+```
 
 
 # How to build
