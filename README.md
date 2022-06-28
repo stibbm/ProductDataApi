@@ -15,7 +15,9 @@ Url Params:
 String productName
 String productDescription
 ```
-example: http://{ip}:{port}/createProduct?productName=product1&productDescription=This%20is%20a%20product%20description
+```
+http://{ip}:{port}/createProduct?productName=product1&productDescription=This%20is%20a%20product%20description
+```
 
 **As shown above, the urlParams must be urlEncoded**
 
@@ -24,7 +26,7 @@ Url Params:
 ```
 Long productId
 ```
-**example**
+
 ```
 http://{ip}:{port}/getProductById?productId=1
 ```
@@ -35,7 +37,6 @@ Url Params:
 String productName
 ```
 
-**example** 
 ```
 http://{ip}:{port}/getProductsByName?productName=productName1
 ```
@@ -46,7 +47,6 @@ Url Params:
 Long productId
 ```
 
-**example**
 ```
 http://{ip}:{port}/deleteProductById?productId=1
 ```
