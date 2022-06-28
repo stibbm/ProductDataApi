@@ -10,6 +10,8 @@ import product.data.api.dao.ProductDAO;
 import product.data.api.model.Product;
 import product.data.api.repository.ProductRepository;
 
+import javax.transaction.Transactional;
+
 @Service
 public class ProductDAOImpl implements ProductDAO {
 	
@@ -46,6 +48,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return product;
 	}
 
+	@Transactional
 	@Override
 	public Product deleteProductById(Long productId) {
 		Validate.notNull(productId, "productId cannot be null");
