@@ -24,7 +24,10 @@ Url Params:
 ```
 Long productId
 ```
-example: http://{ip}:{port}/getProductById?productId=1
+**example**
+```
+http://{ip}:{port}/getProductById?productId=1
+```
 
 ## /getProductsByName
 Url Params:
@@ -32,7 +35,10 @@ Url Params:
 String productName
 ```
 
-example: http://{ip}:{port}/getProductsByName?productName=productName1
+**example** 
+```
+http://{ip}:{port}/getProductsByName?productName=productName1
+```
 
 ## /deleteProductById
 Url Params:
@@ -40,7 +46,10 @@ Url Params:
 Long productId
 ```
 
-example: http://{ip}:{port}/deleteProductById?productId=1
+**example**
+```
+http://{ip}:{port}/deleteProductById?productId=1
+```
 
 
 
