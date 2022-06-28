@@ -60,5 +60,13 @@ public class TestProductDAO {
     	Product product = productDAOImpl.getProductsByName(TEST_PRODUCT_NAME).get(0);
     	Assertions.assertThat(product).isEqualTo(TEST_PRODUCT);
     }
+
+    @Test
+    public void testDeleteProductById() {
+        when(productRepository.deleteProductByProductId(any(Long.class)))
+                .thenReturn(TEST_PRODUCT);
+        Product deletedProduct = productDAOImpl.deleteProductById(TEST_PRODUCT_ID);
+        Assertions.assertThat(deletedProduct).isEqualTo(TEST_PRODUCT);
+    }
 	
 }
