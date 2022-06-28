@@ -66,6 +66,4 @@ public class TestProductManager {
         Product deletedProduct = productManagerImpl.deleteProductById(TEST_PRODUCT_ID);
         Assertions.assertThat(deletedProduct).isEqualTo(TEST_PRODUCT);
     }
-
-
 }
