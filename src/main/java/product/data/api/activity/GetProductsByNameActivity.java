@@ -6,6 +6,7 @@ import org.apache.commons.lang3.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +23,9 @@ public class GetProductsByNameActivity {
 	public GetProductsByNameActivity(ProductManager productManager) {
 		this.productManager = Validate.notNull(productManager);
 	}
-	
-	public ResponseEntity<GetProductsByNameResponse> getProductsByNameUrlParams(
+
+	@GetMapping("/getProductByName")
+	public ResponseEntity<GetProductsByNameResponse> getProductsByName(
 			@RequestParam String productName
 	) {
 		Validate.notNull(productName, "productName cannot be null");

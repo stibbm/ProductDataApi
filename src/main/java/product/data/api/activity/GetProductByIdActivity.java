@@ -22,8 +22,8 @@ public class GetProductByIdActivity {
 		this.productManager = Validate.notNull(productManager);
 	}
 
-	@GetMapping("/getProductByIdUrlParams")
-	public ResponseEntity<GetProductByIdResponse> getProductByIdUrlParams(
+	@GetMapping("/getProductById")
+	public ResponseEntity<GetProductByIdResponse> getProductById(
 			@RequestParam Long productId
 	) {
 		Validate.notNull(productId, "productId cannot be null");

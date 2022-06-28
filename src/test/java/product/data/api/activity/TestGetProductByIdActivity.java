@@ -44,7 +44,7 @@ public class TestGetProductByIdActivity {
         when(productManagerImpl.getProductById(any(Long.class)))
                 .thenReturn(TEST_PRODUCT);
         ResponseEntity<GetProductByIdResponse> responseEntityGetProductByIdResponse
-                = getProductByIdActivity.getProductByIdUrlParams(TEST_PRODUCT_ID);
+                = getProductByIdActivity.getProductById(TEST_PRODUCT_ID);
         assertThat(responseEntityGetProductByIdResponse.getBody().getProduct()).isEqualTo(TEST_PRODUCT);
     }
 }

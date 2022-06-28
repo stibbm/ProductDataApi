@@ -22,8 +22,8 @@ public class DeleteProductByIdActivity {
 		this.productManager = Validate.notNull(productManager);
 	}
 	
-	@GetMapping("/deleteProductByIdUrlParams")
-	public ResponseEntity<DeleteProductByIdResponse> deleteProductByIdUrlParams(
+	@GetMapping("/deleteProductById")
+	public ResponseEntity<DeleteProductByIdResponse> deleteProductById(
 			@RequestParam Long productId
 	) {
 		Validate.notNull(productId, "productId cannot be null");

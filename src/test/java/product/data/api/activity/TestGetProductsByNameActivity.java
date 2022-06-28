@@ -43,7 +43,7 @@ public class TestGetProductsByNameActivity {
     public void testGetProductsByName() {
         when(productManagerImpl.getProductsByName(any(String.class)))
                 .thenReturn(ImmutableList.of(TEST_PRODUCT));
-        Product product = this.getProductsByNameActivity.getProductsByNameUrlParams(TEST_PRODUCT_NAME).getBody()
+        Product product = this.getProductsByNameActivity.getProductsByName(TEST_PRODUCT_NAME).getBody()
                 .getProductsList().get(0);
         assertThat(product).isEqualTo(TEST_PRODUCT);
     }
