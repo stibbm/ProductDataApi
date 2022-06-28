@@ -50,5 +50,13 @@ public class TestProductManager {
         Assertions.assertThat(product).isEqualTo(TEST_PRODUCT);
     }
 
+    @Test
+    public void testGetProductByName() {
+        when(productDAOImpl.getProductsByName(TEST_PRODUCT_NAME))
+            .thenReturn(ImmutableList.of(TEST_PRODUCT));
+        Product product = productManagerImpl.getProductsByName(TEST_PRODUCT_NAME).get(0);
+        Assertions.assertThat(product).isEqualTo(TEST_PRODUCT);
+    }
+
 
 }
