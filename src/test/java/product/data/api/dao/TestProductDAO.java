@@ -1,19 +1,19 @@
 package product.data.api.dao;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.when;
+
 
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import com.google.common.collect.ImmutableList;
-
 import product.data.api.dao.impl.ProductDAOImpl;
 import product.data.api.model.Product;
 import product.data.api.repository.ProductRepository;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 
 public class TestProductDAO {
 	

@@ -24,12 +24,12 @@ public class ProductDAOImpl implements ProductDAO {
 	public Product createProduct(String productName, String productDescription) {
 		Validate.notNull(productName, "productName cannot be null");
 		Validate.notNull(productDescription, "productDescription cannot be null");
-		Product product = Product.builder()
+		Product productWithoutId = Product.builder()
 				.productName(productName)
 				.productDescription(productDescription)
 				.build();
-		this.productRepository.save(product);
-		return product;
+		Product savedProduct = this.productRepository.save(productWithoutId);
+		return savedProduct;
 	}
 
 	@Override
