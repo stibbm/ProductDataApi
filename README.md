@@ -74,3 +74,5 @@ chmod +x gradlew
 ./gradlew tests
 or
 ./gradlew build
+
+![Successful Build Output](build.png)
